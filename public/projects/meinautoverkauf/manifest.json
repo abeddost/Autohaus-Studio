@@ -1,0 +1,20 @@
+{
+  "home-desktop": {
+    "file": "/projects/meinautoverkauf/home-desktop.webp",
+    "width": 2400,
+    "height": 1500,
+    "source": "https://meinautoverkauf.de/"
+  },
+  "home-mobile": {
+    "file": "/projects/meinautoverkauf/home-mobile.webp",
+    "width": 780,
+    "height": 1688,
+    "source": "https://meinautoverkauf.de/"
+  },
+  "home-long-desktop": {
+    "file": "/projects/meinautoverkauf/home-long-desktop.webp",
+    "width": 2400,
+    "height": 3667,
+    "source": "https://meinautoverkauf.de/"
+  }
+}

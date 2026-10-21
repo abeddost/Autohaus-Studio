@@ -1,0 +1,50 @@
+{
+  "home-desktop": {
+    "file": "/projects/autohaus-bodenheim/home-desktop.webp",
+    "width": 2400,
+    "height": 1500,
+    "source": "https://www.autohaus-bodenheim.de/"
+  },
+  "home-mobile": {
+    "file": "/projects/autohaus-bodenheim/home-mobile.webp",
+    "width": 780,
+    "height": 1688,
+    "source": "https://www.autohaus-bodenheim.de/"
+  },
+  "inventory-desktop": {
+    "file": "/projects/autohaus-bodenheim/inventory-desktop.webp",
+    "width": 2400,
+    "height": 2500,
+    "source": "https://www.autohaus-bodenheim.de/unsere-angebote"
+  },
+  "inventory-mobile": {
+    "file": "/projects/autohaus-bodenheim/inventory-mobile.webp",
+    "width": 780,
+    "height": 1688,
+    "source": "https://www.autohaus-bodenheim.de/unsere-angebote"
+  },
+  "vehicle-desktop": {
+    "file": "/projects/autohaus-bodenheim/vehicle-desktop.webp",
+    "width": 2400,
+    "height": 2500,
+    "source": "https://www.autohaus-bodenheim.de/unsere-angebote/gle-400-4matic-schiebedach-leder-acc-2-hand-50353307381088"
+  },
+  "vehicle-mobile": {
+    "file": "/projects/autohaus-bodenheim/vehicle-mobile.webp",
+    "width": 780,
+    "height": 1688,
+    "source": "https://www.autohaus-bodenheim.de/unsere-angebote/gle-400-4matic-schiebedach-leder-acc-2-hand-50353307381088"
+  },
+  "ankauf-desktop": {
+    "file": "/projects/autohaus-bodenheim/ankauf-desktop.webp",
+    "width": 2400,
+    "height": 1500,
+    "source": "https://www.autohaus-bodenheim.de/auto-verkaufen"
+  },
+  "ankauf-mobile": {
+    "file": "/projects/autohaus-bodenheim/ankauf-mobile.webp",
+    "width": 780,
+    "height": 1688,
+    "source": "https://www.autohaus-bodenheim.de/auto-verkaufen"
+  }
+}

@@ -1,0 +1,377 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Night Showroom – design tokens
+   ========================================================================== */
+@theme {
+  /* Night (dark stage) */
+  --color-night: #0a0a0b;
+  --color-night-2: #111113;
+  --color-night-3: #18191c;
+  --color-night-4: #222327;
+  --color-edge: rgb(255 255 255 / 0.085);
+  --color-edge-strong: rgb(255 255 255 / 0.16);
+  --color-bone: #ece8e1;
+  --color-bone-muted: #9b978f;
+  --color-bone-subtle: #6c6963;
+
+  /* Light (paper sections) */
+  --color-paper: #f4f1eb;
+  --color-paper-2: #ebe6dc;
+  --color-white: #fffdf9;
+  --color-ink: #121212;
+  --color-ink-soft: #2c2a27;
+  --color-muted: #5f5b55;
+  --color-subtle: #8a857d;
+  --color-line: #ddd6ca;
+  --color-line-strong: #c9c0b1;
+
+  /* Accent – champagne */
+  --color-champagne: #cdb38a;
+  --color-champagne-bright: #e4cea6;
+  --color-champagne-deep: #85693f;
+  --color-champagne-soft: #efe5d3;
+
+  /* Legacy aliases used by form/calculator internals on light surfaces */
+  --color-accent: #85693f;
+  --color-accent-strong: #6b5432;
+  --color-accent-soft: #efe5d3;
+  --color-mist: #ebe6dc;
+  --color-stone: #e2dccf;
+
+  /* States */
+  --color-success: #3f8a64;
+  --color-warning: #a8742a;
+  --color-danger: #b8463b;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: var(--font-instrument-serif), "Times New Roman", serif;
+
+  --radius-xs: 3px;
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 18px;
+
+  --shadow-hairline: 0 0 0 1px rgb(18 18 18 / 0.07);
+  --shadow-soft: 0 1px 2px rgb(18 18 18 / 0.05), 0 18px 40px -24px rgb(18 18 18 / 0.25);
+  --shadow-float: 0 2px 6px rgb(0 0 0 / 0.25), 0 40px 90px -30px rgb(0 0 0 / 0.75);
+  --shadow-stage: 0 50px 120px -40px rgb(0 0 0 / 0.9), 0 0 0 1px rgb(255 255 255 / 0.06);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+    /* Keeps focused/scrolled-to controls clear of the configurator price bar. */
+    scroll-padding-bottom: 7rem;
+    background: var(--color-night);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-champagne);
+    color: var(--color-night);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-champagne);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  /* Grid items may shrink below their content width (prevents mobile blow-out). */
+  :where(.grid) > * {
+    min-width: 0;
+  }
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+@utility container-x {
+  width: 100%;
+  max-width: 84rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 3rem;
+  }
+}
+
+@utility serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+}
+
+@utility display-hero {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(3.2rem, 6.3vw, 7rem);
+  line-height: 0.93;
+  letter-spacing: -0.025em;
+}
+
+@utility display-xl {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.9rem, 5.8vw, 6.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.022em;
+}
+
+@utility display-lg {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 4.4vw, 4.6rem);
+  line-height: 1;
+  letter-spacing: -0.018em;
+}
+
+@utility display-md {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 3.1vw, 3.1rem);
+  line-height: 1.04;
+  letter-spacing: -0.012em;
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  line-height: 1.2;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@utility lead {
+  font-size: clamp(1.08rem, 1.35vw, 1.24rem);
+  line-height: 1.6;
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ==========================================================================
+   Atmosphere
+   ========================================================================== */
+
+/* Static film grain for dark surfaces. */
+@utility grain {
+  position: relative;
+  isolation: isolate;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@utility spotlight {
+  background-image:
+    radial-gradient(60% 55% at 50% -5%, rgb(236 232 225 / 0.13), transparent 70%),
+    radial-gradient(40% 40% at 85% 60%, rgb(205 179 138 / 0.06), transparent 70%);
+}
+
+@utility hairline-x {
+  background-image: linear-gradient(to right, transparent, rgb(255 255 255 / 0.14), transparent);
+}
+
+/* ==========================================================================
+   Motion
+   ========================================================================== */
+@keyframes rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Masked line reveal: <span class="line-mask"><span class="line-rise" style="--i:0">…</span></span> */
+.line-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.line-rise {
+  display: inline-block;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .line-rise {
+    animation: rise 1.05s var(--ease-out-soft) both;
+    animation-delay: calc(var(--i, 0) * 90ms + 120ms);
+  }
+  .fade-up {
+    animation: fade-up 0.9s var(--ease-out-soft) both;
+    animation-delay: calc(var(--i, 0) * 90ms + 300ms);
+  }
+  .pop-in {
+    animation: pop-in 0.55s var(--ease-out-soft) both;
+  }
+  .slide-in {
+    animation: slide-in 0.5s var(--ease-out-soft) both;
+  }
+}
+
+/* Reveal on scroll – visible without JS and under reduced motion. */
+.reveal {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  .js .reveal {
+    transition:
+      opacity 0.9s var(--ease-out-soft),
+      transform 0.9s var(--ease-out-soft);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ==========================================================================
+   Elements
+   ========================================================================== */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+input[type="number"].no-spin::-webkit-inner-spin-button,
+input[type="number"].no-spin::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"].no-spin {
+  -moz-appearance: textfield;
+}
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Approved legal documents rendered from Markdown */
+.legal-prose {
+  color: var(--color-ink-soft);
+  line-height: 1.75;
+}
+.legal-prose h2 {
+  margin-top: 2.75rem;
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  line-height: 1.1;
+  color: var(--color-ink);
+}
+.legal-prose h3 {
+  margin-top: 1.75rem;
+  font-size: 1.1rem;
+  font-weight: 560;
+  color: var(--color-ink);
+}
+.legal-prose p,
+.legal-prose ul,
+.legal-prose ol {
+  margin-top: 1rem;
+}
+.legal-prose ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.legal-prose ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+.legal-prose a {
+  color: var(--color-champagne-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

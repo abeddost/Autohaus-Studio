@@ -1,0 +1,44 @@
+{
+  "home-desktop": {
+    "file": "/projects/hf-eautos/home-desktop.webp",
+    "width": 2400,
+    "height": 1500,
+    "source": "https://www.hf-eautos.de/"
+  },
+  "home-mobile": {
+    "file": "/projects/hf-eautos/home-mobile.webp",
+    "width": 780,
+    "height": 1688,
+    "source": "https://www.hf-eautos.de/"
+  },
+  "inventory-desktop": {
+    "file": "/projects/hf-eautos/inventory-desktop.webp",
+    "width": 2400,
+    "height": 2500,
+    "source": "https://www.hf-eautos.de/unsere-angebote"
+  },
+  "inventory-mobile": {
+    "file": "/projects/hf-eautos/inventory-mobile.webp",
+    "width": 780,
+    "height": 1688,
+    "source": "https://www.hf-eautos.de/unsere-angebote"
+  },
+  "vehicle-desktop": {
+    "file": "/projects/hf-eautos/vehicle-desktop.webp",
+    "width": 2400,
+    "height": 2500,
+    "source": "https://www.hf-eautos.de/unsere-angebote/bmw-x1-49317675841152"
+  },
+  "vehicle-mobile": {
+    "file": "/projects/hf-eautos/vehicle-mobile.webp",
+    "width": 780,
+    "height": 1688,
+    "source": "https://www.hf-eautos.de/unsere-angebote/bmw-x1-49317675841152"
+  },
+  "services-desktop": {
+    "file": "/projects/hf-eautos/services-desktop.webp",
+    "width": 2400,
+    "height": 1500,
+    "source": "https://www.hf-eautos.de/leistungen"
+  }
+}
