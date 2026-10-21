@@ -84,7 +84,8 @@ the enquiry and its notification outbox row** → email attempt → response.
 - Success (201) is only returned after the row is committed. The response states whether the
   notification was `sent`, `queued` (provider error; it will be retried) or `not_configured`.
 - Retries: `GET /api/cron/notifications` with `Authorization: Bearer $CRON_SECRET` uses exponential
-  backoff (up to 6 attempts). `vercel.json` schedules it every 15 minutes. On other hosts, call it
+  backoff (up to 6 attempts). `vercel.json` schedules it daily at 06:00 UTC (the Hobby plan limit; on Pro you can run it
+  every 15 minutes with `*/15 * * * *`). On other hosts, call it
   from any scheduler.
 - A database outage returns 503, and the form keeps the visitor's input.
 
