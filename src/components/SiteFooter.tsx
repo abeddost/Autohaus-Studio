@@ -1,3 +1,4 @@
+import DesignerCredit from "@/components/DesignerCredit";
 import Link from "next/link";
 import type { Locale } from "@/config/pricing";
 import { site } from "@/config/site";
@@ -101,6 +102,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           <p>
             {t.footer.vatNote} {t.footer.noTracking}
           </p>
+          <DesignerCredit site="autohaus-studio" />
         </div>
       </div>
     </footer>
